@@ -19,8 +19,8 @@
 
 /* Typography */
 body {
-  display: flex;
-    flex-direction: column;
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
   width: 100%;
@@ -33,12 +33,15 @@ body {
 main {
     position: relative;
     width: 100%;
+
     max-width: 1110px;
+     margin: 24px auto; 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 282px 266px;
+    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
     grid-template-areas: "a a b e" "c d d e";
     gap: 30px;
+    
 }
 
 
@@ -146,5 +149,26 @@ section .quote {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "a a" "b b" "c d" "e e";
+    gap: 24px;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
+    grid-template-areas: "a" "b" "c" "d" "e";
+    grid-row: auto;
+  }
 }
 
